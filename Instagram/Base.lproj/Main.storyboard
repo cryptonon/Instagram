@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="373.91304347826087" y="168.75"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Home-->
         <scene sceneID="CCP-8W-4Eb">
             <objects>
                 <viewController storyboardIdentifier="FeedViewController" id="tYp-aw-myt" customClass="FeedViewController" sceneMemberID="viewController">
@@ -88,10 +88,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ve3-Rs-WYr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GEq-PC-sX7">
+                    <navigationItem key="navigationItem" title="Home" id="GEq-PC-sX7">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="FX4-64-Mki">
                             <connections>
                                 <action selector="onLogout:" destination="tYp-aw-myt" id="0qo-Hy-ZDW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="ISV-9S-S4q">
+                            <connections>
+                                <segue destination="ToY-yy-4HM" kind="presentation" id="GSO-Pg-Gyr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,6 +104,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x13-tu-Mpv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2089.8550724637685" y="168.75"/>
+        </scene>
+        <!--Create Post View Controller-->
+        <scene sceneID="fMP-0X-FZZ">
+            <objects>
+                <viewController id="NKR-iY-ibG" customClass="CreatePostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIf-V7-J21">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3mh-Cw-04c">
+                                <rect key="frame" x="20" y="84" width="116" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwK-O6-H82">
+                                <rect key="frame" x="144" y="84" width="227" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3px-9d-iCD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OXC-t5-Lcb">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="LfQ-fM-skh">
+                            <connections>
+                                <action selector="onCancel:" destination="NKR-iY-ibG" id="a0t-Of-frM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="bRl-XZ-aqa">
+                            <connections>
+                                <action selector="onShare:" destination="NKR-iY-ibG" id="Wjv-yi-ywx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionLabel" destination="uwK-O6-H82" id="hzg-e3-IYe"/>
+                        <outlet property="postingImageView" destination="3mh-Cw-04c" id="W8U-oY-sSB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8Y-iK-Cj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3828.985507246377" y="168.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y68-Dg-8Oj">
@@ -118,5 +166,26 @@
             </objects>
             <point key="canvasLocation" x="1179.7101449275362" y="168.75"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fpO-Bo-M1p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ToY-yy-4HM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pwn-g1-FNX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NKR-iY-ibG" kind="relationship" relationship="rootViewController" id="6vd-wA-lRR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FS9-y0-3ar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2918.840579710145" y="168.75"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="insta_camera_btn" width="25" height="25"/>
+    </resources>
 </document>
