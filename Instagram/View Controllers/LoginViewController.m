@@ -1,0 +1,59 @@
+//
+//  LoginViewController.m
+//  Instagram
+//
+//  Created by Aayush Mani Phuyal on 7/7/20.
+//  Copyright © 2020 Aayush Phuyal. All rights reserved.
+//
+
+#import "LoginViewController.h"
+#import <Parse/Parse.h>
+
+@interface LoginViewController ()
+
+// MARK: Properties
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@end
+
+@implementation LoginViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
+
+// Signing up the new user when Signup button is tapped
+- (IBAction)onSignup:(id)sender {
+    
+    PFUser *newUser = [PFUser user];
+    newUser.username = self.usernameField.text;
+    newUser.password = self.passwordField.text;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (!error) {
+            NSLog(@"User registered successfully");
+        } else {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+    }];
+}
+
+// Logging in the user when Login button is tapped
+- (IBAction)onLogin:(id)sender {
+    
+    NSString *username = self.usernameField.text;
+    NSString *password = self.passwordField.text;
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (!error) {
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            NSLog(@"User logged in successfully");
+        } else {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        }
+    }];
+}
+
+@end
