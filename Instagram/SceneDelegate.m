@@ -21,7 +21,6 @@
     // Persisting the logged in user
     PFUser *user = [PFUser currentUser];
     if (user != nil) {
-        NSLog(@"Welcome back %@ 😀", user.username);
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *feedNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"FeedNavigationController"];
         self.window.rootViewController = feedNavigationController;

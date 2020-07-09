@@ -25,12 +25,10 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
-        NSLog(@"Camera unavailable so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 
@@ -63,9 +61,7 @@
 - (IBAction)onShare:(id)sender {
     [Post postUserImage:self.postingImageView.image withCaption:self.captionLabel.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
-            NSLog(@"Posted!");
-        } else {
-            NSLog(@"Error: %@", error.localizedDescription);
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }

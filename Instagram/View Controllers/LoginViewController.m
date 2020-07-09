@@ -20,8 +20,7 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    [super viewDidLoad];    
 }
 
 // Signing up the new user when Signup button is tapped
@@ -33,9 +32,7 @@
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (!error) {
-            NSLog(@"User registered successfully");
-        } else {
-            NSLog(@"Error: %@", error.localizedDescription);
+            self.passwordField.text = @"";
         }
     }];
 }
@@ -49,9 +46,6 @@
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (!error) {
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-            NSLog(@"User logged in successfully");
-        } else {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
         }
     }];
 }
