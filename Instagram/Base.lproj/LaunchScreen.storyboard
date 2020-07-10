@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="TH5-TW-hGK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="TH5-TW-hGK">
                                 <rect key="frame" x="160" y="401" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="W8S-sY-Qxo"/>

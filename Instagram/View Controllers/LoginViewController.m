@@ -30,8 +30,8 @@
     newUser.password = self.passwordField.text;
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (!error) {
-            self.passwordField.text = @"";
+        if (succeeded) {
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
 }

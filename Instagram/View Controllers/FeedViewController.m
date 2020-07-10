@@ -63,14 +63,29 @@
 
 // Logging out the user when Logout button is tapped
 - (IBAction)onLogout:(id)sender {
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        if (!error) {
-            SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            sceneDelegate.window.rootViewController = loginViewController;
-        }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to logout?"
+                                                                   message:nil
+                                                            preferredStyle:(UIAlertControllerStyleActionSheet)];
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Log Out"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+        [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+            if (!error) {
+                SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                sceneDelegate.window.rootViewController = loginViewController;
+            }
+        }];
     }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"No"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [yesAction setValue:[UIColor redColor] forKey:@"titleTextColor"];
+    [alert addAction:yesAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 # pragma mark - Delegate Methods
