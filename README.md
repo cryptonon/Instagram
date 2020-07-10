@@ -49,9 +49,7 @@ Here's a walkthrough of implemented user stories:
 
 2. <img src='http://g.recordit.co/koWz8BaEoo.gif' title='Video Walkthrough' width='' alt='' />
 
-3. [Using the phone's camera]('http://g.recordit.co/vR9iYtEXrZ.gif')
-
-4. <img src='http://g.recordit.co/DfGGBPOU1Z.gif' title='Video Walkthrough' width='' alt='' />
+3. <img src='http://g.recordit.co/DfGGBPOU1Z.gif' title='Video Walkthrough' width='' alt='' />
 
 GIF created with [Recordit.co](https://recordit.co/).
 
