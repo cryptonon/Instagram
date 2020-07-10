@@ -11,12 +11,14 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import "PostCell.h"
+#import "DetailsViewController.h"
 
 @interface FeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 // MARK: Properties
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *postsArray;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,12 +30,22 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
     [self fetchPosts];
+}
+
+// Method to deselect the selected row
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
 }
 
 // Method to fetch posts from parse
 - (void) fetchPosts {
-    
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
@@ -45,12 +57,12 @@
             [self.tableView reloadData];
         }
     }];
+    [self.refreshControl endRefreshing];
 }
 
 
 // Logging out the user when Logout button is tapped
 - (IBAction)onLogout:(id)sender {
-    
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (!error) {
             SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -65,7 +77,6 @@
 
 // Method to configure the Table View's cell (Table View Data Source's required method)
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     PostCell *post = self.postsArray[indexPath.row];
     cell.post = (Post *) post;
@@ -76,6 +87,19 @@
 // Method to find out the number of rows in Table View (Table View Data Source's required method)
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.postsArray.count;
+}
+
+#pragma mark - Navigation
+
+// Method to configuring the segue and set composeController and detailsViewController's delegate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.postsArray[indexPath.row];
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.post = post;
+    }
 }
 
 @end

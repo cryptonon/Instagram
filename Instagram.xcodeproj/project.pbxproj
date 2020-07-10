@@ -17,6 +17,7 @@
 		2C1EDF9424B3D6330091CE3F /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1EDF9324B3D6330091CE3F /* InstagramUITests.m */; };
 		2C91849A24B4ECDA0038CDAA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C91849924B4ECDA0038CDAA /* LoginViewController.m */; };
 		2C91849D24B4F25F0038CDAA /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C91849C24B4F25F0038CDAA /* FeedViewController.m */; };
+		2C91A67624B7BA3D003D1F51 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C91A67524B7BA3D003D1F51 /* DetailsViewController.m */; };
 		2CA5C04324B513DE00276589 /* CreatePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5C04224B513DE00276589 /* CreatePostViewController.m */; };
 		2CA5C04724B51DAB00276589 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5C04624B51DAB00276589 /* Post.m */; };
 		2CA5C04B24B53A2700276589 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5C04A24B53A2700276589 /* PostCell.m */; };
@@ -64,6 +65,8 @@
 		2C91849924B4ECDA0038CDAA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2C91849B24B4F25F0038CDAA /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		2C91849C24B4F25F0038CDAA /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		2C91A67424B7BA3D003D1F51 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		2C91A67524B7BA3D003D1F51 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2CA5C04124B513DE00276589 /* CreatePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePostViewController.h; sourceTree = "<group>"; };
 		2CA5C04224B513DE00276589 /* CreatePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatePostViewController.m; sourceTree = "<group>"; };
 		2CA5C04524B51DAB00276589 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				2C91849C24B4F25F0038CDAA /* FeedViewController.m */,
 				2CA5C04124B513DE00276589 /* CreatePostViewController.h */,
 				2CA5C04224B513DE00276589 /* CreatePostViewController.m */,
+				2C91A67424B7BA3D003D1F51 /* DetailsViewController.h */,
+				2C91A67524B7BA3D003D1F51 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				2CA5C04B24B53A2700276589 /* PostCell.m in Sources */,
 				2C1EDF6E24B3D6320091CE3F /* AppDelegate.m in Sources */,
 				2C1EDF7F24B3D6320091CE3F /* main.m in Sources */,
+				2C91A67624B7BA3D003D1F51 /* DetailsViewController.m in Sources */,
 				2C1EDF7124B3D6320091CE3F /* SceneDelegate.m in Sources */,
 				2CA5C04724B51DAB00276589 /* Post.m in Sources */,
 			);

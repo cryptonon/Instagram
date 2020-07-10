@@ -25,7 +25,6 @@
 
 // Signing up the new user when Signup button is tapped
 - (IBAction)onSignup:(id)sender {
-    
     PFUser *newUser = [PFUser user];
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
@@ -39,7 +38,6 @@
 
 // Logging in the user when Login button is tapped
 - (IBAction)onLogin:(id)sender {
-    
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     

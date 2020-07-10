@@ -21,7 +21,6 @@
 
 // Class method for posting image to parse database
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];
@@ -34,7 +33,6 @@
 
 // Class method for making PFFileObject from UIImage
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
     if (!image) return nil;
     NSData *imageData = UIImagePNGRepresentation(image);
     if (!imageData) return nil;

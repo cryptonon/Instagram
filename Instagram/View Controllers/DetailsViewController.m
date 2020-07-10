@@ -1,17 +1,16 @@
 //
-//  PostCell.m
+//  DetailsViewController.m
 //  Instagram
 //
-//  Created by Aayush Mani Phuyal on 7/7/20.
+//  Created by Aayush Mani Phuyal on 7/9/20.
 //  Copyright © 2020 Aayush Phuyal. All rights reserved.
 //
 
-#import "PostCell.h"
+#import "DetailsViewController.h"
 #import "NSDate+DateTools.h"
 @import Parse;
 
-
-@interface PostCell()
+@interface DetailsViewController ()
 
 // MARK: Properties
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -21,23 +20,20 @@
 
 @end
 
-@implementation PostCell
+@implementation DetailsViewController
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setViewProperties];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
-// Setter Method that sets PostCell's post property
-- (void)setPost:(Post *)post {
-    _post = post;
+// Method that sets DetailsViewController's Properties
+- (void)setViewProperties {
     self.usernameLabel.text = self.post.author.username;
     self.captionLabel.text = self.post.caption;
     self.createdAgoLabel.text = [self.post.createdAt shortTimeAgoSinceNow];
-    self.photoImageView.file = post.image;
+    self.photoImageView.file = self.post.image;
     [self.photoImageView loadInBackground];
 }
 

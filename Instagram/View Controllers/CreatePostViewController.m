@@ -31,7 +31,6 @@
     } else {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     
 }
@@ -70,10 +69,8 @@
 
 // UIImagePickerController's Delegate method to get and process captured image locally
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     self.postingImageView.image = [self resizeImage:editedImage withSize:CGSizeMake(399, 399)];
-
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
